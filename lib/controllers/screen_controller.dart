@@ -10,15 +10,13 @@ class ScreenController extends StatelessWidget {
   final Widget largeScreen;
   final Widget? mediumScreen;
   final Widget? smallScreen;
-  final Widget? customScreen;
 
-  const ScreenController(
-      {Key? key,
-      required this.largeScreen,
-      this.mediumScreen,
-      this.smallScreen,
-      this.customScreen})
-      : super(key: key);
+  const ScreenController({
+    Key? key,
+    required this.largeScreen,
+    this.mediumScreen,
+    this.smallScreen,
+  }) : super(key: key);
 
   static bool isSmallScreen(BuildContext context) =>
       MediaQuery.of(context).size.width < mediumScreenSize;
@@ -28,10 +26,6 @@ class ScreenController extends StatelessWidget {
       MediaQuery.of(context).size.width < largeScreenSize;
 
   static bool isLargeScreen(BuildContext context) =>
-      MediaQuery.of(context).size.width >= largeScreenSize;
-
-  static bool isCustomScreen(BuildContext context) =>
-      MediaQuery.of(context).size.width >= mediumScreenSize &&
       MediaQuery.of(context).size.width >= largeScreenSize;
 
   @override
