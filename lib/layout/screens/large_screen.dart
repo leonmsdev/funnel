@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
+import 'package:funnel/main.dart';
+import 'package:funnel/styles/colors.dart';
 import 'package:funnel/widgets/card.dart';
 
 class LargeScreen extends StatelessWidget {
@@ -9,12 +9,58 @@ class LargeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Expanded(
-      child: Container(
-        color: Colors.orangeAccent,
-        child: Center(
-          child: WhiteCard(),
-        ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Container(
+            color: backgroundColor,
+            child: Center(
+              child: Column(
+                children: [
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      HeadingCard(
+                        isDark: isDarkMode,
+                      ),
+                      HeadingCard(
+                        isDark: isDarkMode,
+                      ),
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 50,
+                  ),
+                  const DarkModeButton()
+                ],
+              ),
+            ),
+          ),
+        ],
       ),
+    );
+  }
+}
+
+class DarkModeButton extends StatefulWidget {
+  const DarkModeButton({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  State<DarkModeButton> createState() => _DarkModeButtonState();
+}
+
+class _DarkModeButtonState extends State<DarkModeButton> {
+  @override
+  Widget build(BuildContext context) {
+    return IconButton(
+      onPressed: () {
+        print("object");
+      },
+      icon: const Icon(Icons.dark_mode),
     );
   }
 }
