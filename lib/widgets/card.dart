@@ -1,27 +1,79 @@
+// ignore_for_file: prefer_const_constructors
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/widgets.dart';
-import 'package:funnel/controllers/screen_controller.dart';
 
-class WhiteCard extends StatelessWidget {
-  const WhiteCard({Key? key}) : super(key: key);
+// ignore: must_be_immutable
+class HeadingCard extends StatelessWidget {
+  String? heading;
+  String? sideHeading;
+  String imagePath;
+  bool isDark = false;
+
+  HeadingCard(
+      {Key? key,
+      this.heading,
+      this.sideHeading,
+      this.imagePath = 'illustration.jpg',
+      required this.isDark})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 320,
-      height: 200,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(18),
-        color: Colors.white,
-      ),
-      child: Center(
-        child: ScreenController.isLargeScreen(context)
-            ? Text("large")
-            : ScreenController.isMediumScreen(context)
-                ? Text("medium")
-                : Text("small"),
+    return InkWell(
+      onTap: () {
+        print("hello");
+      },
+      child: Container(
+        width: 180,
+        padding: EdgeInsets.all(15.0),
+        decoration: BoxDecoration(
+          color: !isDark ? Colors.white : Colors.black,
+          borderRadius: BorderRadius.circular(25),
+          border: Border.all(width: .5, color: Colors.grey.withOpacity(.4)),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(.03),
+              blurRadius: 25,
+              spreadRadius: 1,
+              offset: Offset(
+                0,
+                2,
+              ),
+            )
+          ],
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Container(
+              height: 130.0,
+              decoration: BoxDecoration(
+                color: Colors.purpleAccent,
+                borderRadius: BorderRadius.circular(18),
+                image: DecorationImage(
+                  image: AssetImage("lib/styles/images/$imagePath"),
+                  fit: BoxFit.fill,
+                ),
+              ),
+            ),
+            SizedBox(height: 10),
+            Text(
+              "Heading",
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 24,
+                color: !isDark ? Colors.white : Colors.black,
+              ),
+              textAlign: TextAlign.center,
+            ),
+            SizedBox(height: 5),
+            Text(
+              "Sideheading",
+              style: TextStyle(color: Colors.grey),
+              textAlign: TextAlign.center,
+            ),
+            SizedBox(height: 10),
+          ],
+        ),
       ),
     );
   }

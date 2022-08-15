@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
-
+import 'package:funnel/main.dart';
+import 'package:funnel/styles/colors.dart';
 import '../../widgets/card.dart';
 
 class MediumScreen extends StatelessWidget {
@@ -11,9 +10,11 @@ class MediumScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: Container(
-        color: Colors.blueAccent,
+        color: backgroundColor,
         child: Center(
-          child: WhiteCard(),
+          child: HeadingCard(
+            isDark: isDarkMode,
+          ),
         ),
       ),
     );
