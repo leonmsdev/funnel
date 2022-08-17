@@ -4,7 +4,7 @@ class ColorThemeProvider extends ChangeNotifier {
   bool isDark = false;
 
   changeTheme() {
-    isDark = true;
+    isDark = !isDark;
     notifyListeners();
   }
 }
