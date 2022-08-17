@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:funnel/main.dart';
+import 'package:funnel/providers/color_theme_provider.dart';
 import 'package:funnel/styles/colors.dart';
 import 'package:funnel/widgets/card.dart';
+import 'package:funnel/widgets/custom_text.dart';
+import 'package:provider/provider.dart';
+
+import '../../widgets/change_theme_button.dart';
 
 class LargeScreen extends StatelessWidget {
   const LargeScreen({Key? key}) : super(key: key);
@@ -14,7 +19,6 @@ class LargeScreen extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Container(
-            color: backgroundColor,
             child: Center(
               child: Column(
                 children: [
@@ -30,37 +34,22 @@ class LargeScreen extends StatelessWidget {
                       ),
                     ],
                   ),
-                  const SizedBox(
-                    height: 50,
-                  ),
-                  const DarkModeButton()
+                  const SizedBox(height: 50),
+                  const ChangeThemeButton(),
+                  const SizedBox(height: 20),
+                  CustomText(
+                    text: "The value is " +
+                        "${Provider.of<ColorThemeProvider>(context).isDark}",
+                    color: Provider.of<ColorThemeProvider>(context).isDark
+                        ? Colors.black
+                        : Colors.white,
+                  )
                 ],
               ),
             ),
           ),
         ],
       ),
-    );
-  }
-}
-
-class DarkModeButton extends StatefulWidget {
-  const DarkModeButton({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  State<DarkModeButton> createState() => _DarkModeButtonState();
-}
-
-class _DarkModeButtonState extends State<DarkModeButton> {
-  @override
-  Widget build(BuildContext context) {
-    return IconButton(
-      onPressed: () {
-        print("object");
-      },
-      icon: const Icon(Icons.dark_mode),
     );
   }
 }
