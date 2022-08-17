@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "473952285550",
+    "project_id": "pos-backend-flutter",
+    "storage_bucket": "pos-backend-flutter.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:473952285550:android:e2cdf72338eb0a99ecc77f",
+        "android_client_info": {
+          "package_name": "com.example.funnel"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "473952285550-qc93ppefcku8ovbaq90ofdreun1ge1hc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCDSjmIzXXGniPCCLq_IW4KGAGtjyG9eUk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "473952285550-qc93ppefcku8ovbaq90ofdreun1ge1hc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
