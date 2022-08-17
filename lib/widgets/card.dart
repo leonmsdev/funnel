@@ -1,94 +1,83 @@
 // ignore_for_file: prefer_const_constructors
 import 'package:flutter/material.dart';
+import 'package:funnel/widgets/custom_text.dart';
 import 'package:provider/provider.dart';
-
-import '../providers/color_theme_provider.dart';
 
 // ignore: must_be_immutable
 class HeadingCard extends StatelessWidget {
   String? heading;
   String? sideHeading;
-  String imagePath;
-  bool isDark = false;
 
-  HeadingCard(
-      {Key? key,
-      this.heading,
-      this.sideHeading,
-      this.imagePath = 'illustration.jpg',
-      required this.isDark})
-      : super(key: key);
+  HeadingCard({
+    Key? key,
+    this.heading,
+    this.sideHeading,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () {
-        print("hello");
-      },
-      child: Container(
-        width: 180,
-        padding: EdgeInsets.all(15.0),
-        decoration: BoxDecoration(
-          color: Provider.of<ColorThemeProvider>(context).isDark
-              ? Colors.white
-              : Colors.black,
-          borderRadius: BorderRadius.circular(25),
-          border: Border.all(
-            width: .5,
-            color: Provider.of<ColorThemeProvider>(context).isDark
-                ? Colors.grey.withOpacity(.4)
+    return Consumer(builder: (context, provider, child) {
+      return InkWell(
+        onTap: () {},
+        child: Container(
+          width: 180,
+          padding: EdgeInsets.all(15.0),
+          decoration: BoxDecoration(
+            color: Theme.of(context).brightness == Brightness.light
+                ? Colors.white
                 : Colors.black,
-          ),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withOpacity(.03),
-              blurRadius: 25,
-              spreadRadius: 1,
-              offset: Offset(
-                0,
-                2,
-              ),
-            )
-          ],
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Container(
-              height: 130.0,
-              decoration: BoxDecoration(
-                color: Colors.purpleAccent,
-                borderRadius: BorderRadius.circular(18),
-                image: DecorationImage(
-                  image: AssetImage("lib/styles/images/$imagePath"),
-                  fit: BoxFit.fill,
+            borderRadius: BorderRadius.circular(25),
+            border: Border.all(
+              width: .5,
+              color: Theme.of(context).brightness == Brightness.light
+                  ? Colors.grey.withOpacity(.4)
+                  : Colors.black,
+            ),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withOpacity(.03),
+                blurRadius: 25,
+                spreadRadius: 1,
+                offset: Offset(
+                  0,
+                  2,
                 ),
+              )
+            ],
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Container(
+                height: 130.0,
+                decoration: BoxDecoration(
+                    color: Colors.grey,
+                    borderRadius: BorderRadius.circular(18),
+                    image: DecorationImage(
+                      image: AssetImage(
+                          Theme.of(context).brightness == Brightness.light
+                              ? "lib/styles/images/illustration.jpg"
+                              : "lib/styles/images/dark_illustration.jpg"),
+                      fit: BoxFit.fill,
+                    )),
               ),
-            ),
-            SizedBox(height: 10),
-            Text(
-              "Heading",
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 24,
-                color: Provider.of<ColorThemeProvider>(context).isDark
-                    ? Colors.black
-                    : Colors.white,
+              SizedBox(height: 10),
+              CustomText(
+                text: "Heading",
+                size: 24,
+                weight: FontWeight.bold,
+                textAlign: TextAlign.center,
               ),
-              textAlign: TextAlign.center,
-            ),
-            SizedBox(height: 5),
-            Text(
-              "Sideheading",
-              style: TextStyle(
-                color: Colors.grey,
+              SizedBox(height: 5),
+              CustomText(
+                text: "Sideheading",
+                textAlign: TextAlign.center,
               ),
-              textAlign: TextAlign.center,
-            ),
-            SizedBox(height: 10),
-          ],
+              SizedBox(height: 10),
+            ],
+          ),
         ),
-      ),
-    );
+      );
+    });
   }
 }

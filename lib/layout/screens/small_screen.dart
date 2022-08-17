@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:funnel/main.dart';
-
 import '../../styles/colors.dart';
 import '../../widgets/card.dart';
 
@@ -13,9 +11,7 @@ class SmallScreen extends StatelessWidget {
       child: Container(
         color: backgroundColor,
         child: Center(
-          child: HeadingCard(
-            isDark: isDarkMode,
-          ),
+          child: HeadingCard(),
         ),
       ),
     );
