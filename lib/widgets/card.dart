@@ -5,13 +5,13 @@ import 'package:provider/provider.dart';
 
 // ignore: must_be_immutable
 class HeadingCard extends StatelessWidget {
-  String? heading;
-  String? sideHeading;
+  String heading;
+  String sideHeading;
 
   HeadingCard({
     Key? key,
-    this.heading,
-    this.sideHeading,
+    required this.heading,
+    required this.sideHeading,
   }) : super(key: key);
 
   @override
@@ -63,14 +63,14 @@ class HeadingCard extends StatelessWidget {
               ),
               SizedBox(height: 10),
               CustomText(
-                text: "Heading",
+                text: heading.toString(),
                 size: 24,
                 weight: FontWeight.bold,
                 textAlign: TextAlign.center,
               ),
               SizedBox(height: 5),
               CustomText(
-                text: "Sideheading",
+                text: sideHeading.toString(),
                 textAlign: TextAlign.center,
               ),
               SizedBox(height: 10),

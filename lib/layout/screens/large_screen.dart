@@ -21,8 +21,14 @@ class LargeScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    HeadingCard(),
-                    HeadingCard(),
+                    HeadingCard(
+                      heading: "Funnels",
+                      sideHeading: "settings",
+                    ),
+                    HeadingCard(
+                      heading: "CICD",
+                      sideHeading: "automate it",
+                    ),
                   ],
                 ),
                 const SizedBox(height: 50),
