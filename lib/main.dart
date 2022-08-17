@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:funnel/layout/layout.dart';
 import 'package:funnel/providers/color_theme_provider.dart';
@@ -6,10 +8,12 @@ import 'package:provider/provider.dart';
 bool isDarkMode = false;
 
 void main() {
-  runApp(ChangeNotifierProvider(
-    create: (_) => ColorThemeProvider(),
-    child: Master(),
-  ));
+  runApp(
+    ChangeNotifierProvider(
+      create: (_) => ThemeProvider()..initialize(),
+      child: Master(),
+    ),
+  );
 }
 
 class Master extends StatelessWidget {
@@ -17,13 +21,17 @@ class Master extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: Layout(),
+    return Consumer<ThemeProvider>(
+      builder: (context, provider, child) {
+        return MaterialApp(
+          debugShowCheckedModeBanner: false,
+          title: 'Flutter Demo',
+          theme: ThemeData.light(),
+          darkTheme: ThemeData.dark(),
+          themeMode: provider.themeMode,
+          home: Layout(),
+        );
+      },
     );
   }
 }

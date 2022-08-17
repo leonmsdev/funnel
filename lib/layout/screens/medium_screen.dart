@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:funnel/main.dart';
 import 'package:funnel/styles/colors.dart';
 import '../../widgets/card.dart';
 
@@ -12,9 +11,7 @@ class MediumScreen extends StatelessWidget {
       child: Container(
         color: backgroundColor,
         child: Center(
-          child: HeadingCard(
-            isDark: isDarkMode,
-          ),
+          child: HeadingCard(),
         ),
       ),
     );
