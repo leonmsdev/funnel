@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:funnel/styles/colors.dart';
-import '../../widgets/card.dart';
 
 class MediumScreen extends StatelessWidget {
   const MediumScreen({Key? key}) : super(key: key);
@@ -10,9 +9,7 @@ class MediumScreen extends StatelessWidget {
     return Expanded(
       child: Container(
         color: backgroundColor,
-        child: Center(
-          child: HeadingCard(),
-        ),
+        child: const Center(),
       ),
     );
   }
