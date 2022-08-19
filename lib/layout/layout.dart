@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:funnel/controllers/screen_controller.dart';
 import 'package:funnel/layout/screens/large_screen.dart';
+import 'package:funnel/layout/screens/login_screen.dart';
 import 'package:funnel/layout/screens/medium_screen.dart';
 import 'package:funnel/layout/screens/small_screen.dart';
 
@@ -13,7 +14,7 @@ class Layout extends StatelessWidget {
     return Scaffold(
       key: scaffoldKey,
       body: const ScreenController(
-        largeScreen: LargeScreen(),
+        largeScreen: LoginScreen(),
         mediumScreen: MediumScreen(),
         smallScreen: SmallScreen(),
       ),

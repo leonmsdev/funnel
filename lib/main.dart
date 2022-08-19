@@ -7,7 +7,6 @@ import 'package:funnel/providers/color_theme_provider.dart';
 import 'package:provider/provider.dart';
 
 import 'firebase_options.dart';
-import 'layout/screens/login_screen.dart';
 
 bool isDarkMode = false;
 
@@ -26,7 +25,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
       create: (_) => ThemeProvider()..initialize(),
-      child: LoginScreen(),
+      child: Master(),
     );
   }
 }
