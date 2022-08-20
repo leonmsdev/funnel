@@ -32,8 +32,13 @@ class LargeScreen extends StatelessWidget {
                   ],
                 ),
                 const SizedBox(height: 50),
+                ThemeDropdownButton(),
                 const SizedBox(height: 40),
-                ThemeDropdownButton()
+                IconButton(
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/login');
+                    },
+                    icon: Icon(Icons.exit_to_app_rounded))
               ],
             ),
           ),

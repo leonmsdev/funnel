@@ -3,10 +3,12 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:funnel/layout/layout.dart';
+import 'package:funnel/layout/screens/login_screen.dart';
 import 'package:funnel/providers/color_theme_provider.dart';
 import 'package:provider/provider.dart';
 
 import 'firebase_options.dart';
+import 'layout/screens/register_screen.dart';
 
 bool isDarkMode = false;
 
@@ -43,7 +45,12 @@ class Master extends StatelessWidget {
           theme: ThemeData.light(),
           darkTheme: ThemeData.dark(),
           themeMode: provider.themeMode,
-          home: Layout(),
+          initialRoute: '/login',
+          routes: {
+            '/': (context) => Layout(),
+            '/login': (context) => LoginScreen(),
+            '/register': (context) => RegisterScreen()
+          },
         );
       },
     );

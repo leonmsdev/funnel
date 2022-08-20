@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:funnel/layout/screens/register_screen.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({Key? key}) : super(key: key);
+class RegisterScreen extends StatefulWidget {
+  const RegisterScreen({Key? key}) : super(key: key);
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<RegisterScreen> createState() => _RegisterScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _RegisterScreenState extends State<RegisterScreen> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
 
@@ -33,22 +32,19 @@ class _LoginScreenState extends State<LoginScreen> {
                 obscureText: true,
               ),
               const SizedBox(height: 50),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  ElevatedButton(
-                      onPressed: () {
-                        Navigator.pushNamed(context, '/');
-                      },
-                      child: Text("Login")),
-                  const SizedBox(width: 100),
-                  ElevatedButton(
-                      onPressed: () {
-                        Navigator.pushNamed(context, '/register');
-                      },
-                      child: Text("register")),
-                ],
-              )
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/');
+                },
+                child: Text("Register"),
+              ),
+              const SizedBox(height: 30),
+              IconButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                icon: Icon(Icons.arrow_back_ios_new),
+              ),
             ],
           ),
         ),

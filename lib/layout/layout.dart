@@ -14,7 +14,7 @@ class Layout extends StatelessWidget {
     return Scaffold(
       key: scaffoldKey,
       body: const ScreenController(
-        largeScreen: LoginScreen(),
+        largeScreen: LargeScreen(),
         mediumScreen: MediumScreen(),
         smallScreen: SmallScreen(),
       ),
