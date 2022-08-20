@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:funnel/providers/auth_provider.dart';
 import 'package:funnel/widgets/custom_text.dart';
-import 'package:funnel/widgets/form_text_field.dart';
+import 'package:funnel/widgets/login_text_field.dart';
 import 'package:provider/provider.dart';
 
 class NormalRegisterScreen extends StatelessWidget {
@@ -28,14 +28,13 @@ class NormalRegisterScreen extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
               const SizedBox(height: 30),
-              FormTextField(
-                emailController: emailController,
+              LoginTextField(
+                controllerType: emailController,
                 lableText: 'Email',
               ),
-              TextField(
-                controller: passwordController,
-                textInputAction: TextInputAction.next,
-                decoration: const InputDecoration(labelText: "Password"),
+              LoginTextField(
+                controllerType: passwordController,
+                lableText: 'Email',
                 obscureText: true,
               ),
               const SizedBox(height: 50),
