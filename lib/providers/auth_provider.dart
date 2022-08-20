@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart' as auth;
+import 'package:flutter/material.dart';
 import 'package:funnel/models/user_model.dart';
 
 class AuthProvider {
@@ -36,6 +37,14 @@ class AuthProvider {
     );
 
     return _userFromFirebase(credential.user);
+  }
+
+  Future resetPassword(String emailController) async {
+    _firebaseAuth.sendPasswordResetEmail(email: emailController);
+
+    return SnackBar(
+      content: Text('Password reset is send to $emailController'),
+    );
   }
 
   Future<void> signOut() async {

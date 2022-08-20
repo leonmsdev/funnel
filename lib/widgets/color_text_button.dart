@@ -13,21 +13,22 @@ class ColorTextButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: InkWell(
-          onTap: onTap,
-          child: Container(
-            decoration: BoxDecoration(
-              color: primaryAccentColor,
-              borderRadius: BorderRadius.circular(8),
+        onTap: onTap,
+        child: Container(
+          decoration: BoxDecoration(
+            color: primaryAccentColor,
+            borderRadius: BorderRadius.circular(8),
+          ),
+          child: Padding(
+            padding: const EdgeInsets.all(13.0),
+            child: Text(
+              title,
+              textAlign: TextAlign.center,
+              style: const TextStyle(color: Colors.white),
             ),
-            child: Padding(
-              padding: const EdgeInsets.all(13.0),
-              child: Text(
-                title,
-                textAlign: TextAlign.center,
-                style: const TextStyle(color: Colors.white),
-              ),
-            ),
-          )),
+          ),
+        ),
+      ),
     );
   }
 }

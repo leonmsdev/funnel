@@ -5,6 +5,8 @@ import 'package:funnel/styles/colors.dart';
 import 'package:funnel/widgets/color_text_button.dart';
 import 'package:funnel/widgets/custom_text.dart';
 import 'package:funnel/widgets/login_text_field.dart';
+import 'package:funnel/widgets/reset_password.dart';
+import 'package:ndialog/ndialog.dart';
 import 'package:provider/provider.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -134,9 +136,15 @@ class NormalLoginScreen extends StatelessWidget {
                                 ),
                                 const Spacer(),
                                 InkWell(
-                                  onTap: () {},
+                                  onTap: () async {
+                                    await NDialog(
+                                      dialogStyle:
+                                          DialogStyle(titleDivider: true),
+                                      content: ResetPassword(),
+                                    ).show(context);
+                                  },
                                   child: CustomText(
-                                    text: "Forgot yout password?",
+                                    text: "Forgot your password?",
                                     fontSize: 12,
                                     color: primaryAccentColor,
                                     fontWeight: FontWeight.w600,
