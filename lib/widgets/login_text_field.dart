@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:funnel/styles/colors.dart';
 import 'package:funnel/widgets/custom_text.dart';
 
+// ignore: must_be_immutable
 class LoginTextField extends StatelessWidget {
   final TextEditingController controllerType;
   bool obscureText;
@@ -33,8 +34,8 @@ class LoginTextField extends StatelessWidget {
             controller: controllerType,
             obscureText: obscureText,
             textInputAction: TextInputAction.next,
+            cursorColor: primaryAccentColor,
             decoration: InputDecoration(
-                focusColor: primaryAccentColor,
                 floatingLabelBehavior: FloatingLabelBehavior.never,
                 labelText: lableText,
                 labelStyle: const TextStyle(
