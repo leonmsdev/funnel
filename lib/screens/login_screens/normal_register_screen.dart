@@ -4,8 +4,8 @@ import 'package:funnel/widgets/custom_text.dart';
 import 'package:funnel/widgets/form_text_field.dart';
 import 'package:provider/provider.dart';
 
-class RegisterScreen extends StatelessWidget {
-  const RegisterScreen({Key? key}) : super(key: key);
+class NormalRegisterScreen extends StatelessWidget {
+  const NormalRegisterScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

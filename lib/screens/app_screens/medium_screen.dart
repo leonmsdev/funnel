@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:funnel/providers/auth_provider.dart';
 import 'package:provider/provider.dart';
 
-import '../widgets/card.dart';
-import '../widgets/theme_dropdown_button.dart';
+import '../../widgets/card.dart';
+import '../../widgets/theme_dropdown_button.dart';
 
 class MediumScreen extends StatelessWidget {
   const MediumScreen({Key? key}) : super(key: key);

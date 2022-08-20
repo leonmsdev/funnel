@@ -3,10 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:funnel/providers/auth_provider.dart';
 import 'package:funnel/firebase_options.dart';
 import 'package:funnel/providers/color_theme_provider.dart';
-import 'package:funnel/screens/login_screen.dart';
+import 'package:funnel/screens/login_screens/normal_login_screen.dart';
+import 'package:funnel/screens/login_screens/small_login_screen.dart';
+import 'package:funnel/screens/login_screens/small_register_screen.dart';
 import 'package:funnel/widgets/wrapper.dart';
 import 'package:provider/provider.dart';
-import 'screens/register_screen.dart';
+import 'screens/login_screens/normal_register_screen.dart';
 
 bool isDarkMode = false;
 
@@ -53,8 +55,10 @@ class Master extends StatelessWidget {
           initialRoute: '/',
           routes: {
             '/': (context) => const Wrapper(),
-            '/login': (context) => const LoginScreen(),
-            '/register': (context) => const RegisterScreen()
+            '/normal_login': (context) => const NormalLoginScreen(),
+            '/small_login': (context) => const SmallLoginScreen(),
+            '/normal_register': (context) => const NormalRegisterScreen(),
+            '/small_register': (context) => const SmallRegisterScreen(),
           },
         );
       },

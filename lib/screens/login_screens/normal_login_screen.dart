@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:funnel/controllers/screen_controller.dart';
 import 'package:funnel/providers/auth_provider.dart';
 import 'package:funnel/widgets/custom_text.dart';
 import 'package:provider/provider.dart';
 
-class LoginScreen extends StatelessWidget {
-  const LoginScreen({Key? key}) : super(key: key);
+class NormalLoginScreen extends StatelessWidget {
+  const NormalLoginScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -73,7 +74,14 @@ class LoginScreen extends StatelessWidget {
                         const SizedBox(width: 100),
                         ElevatedButton(
                             onPressed: () {
-                              Navigator.pushNamed(context, '/register');
+                              if (ScreenController.isLargeScreen(context) ||
+                                  ScreenController.isMediumScreen(context) ==
+                                      true) {
+                                Navigator.pushNamed(
+                                    context, '/normal_register');
+                              } else {
+                                Navigator.pushNamed(context, '/small_register');
+                              }
                             },
                             child: const Text("Register now")),
                       ],
