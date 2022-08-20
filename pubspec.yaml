@@ -65,6 +65,7 @@ flutter:
     - lib/styles/images/dark_illustration.jpg
     - lib/styles/images/illustration.jpg
     - lib/styles/images/login_bg_img.jpg
+    - lib/styles/images/medium_login_bg_img.jpg
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

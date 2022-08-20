@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+
 import 'package:funnel/styles/colors.dart';
 
 class ColorTextButton extends StatelessWidget {
@@ -20,11 +20,11 @@ class ColorTextButton extends StatelessWidget {
               borderRadius: BorderRadius.circular(8),
             ),
             child: Padding(
-              padding: EdgeInsets.all(13.0),
+              padding: const EdgeInsets.all(13.0),
               child: Text(
                 title,
                 textAlign: TextAlign.center,
-                style: TextStyle(color: Colors.white),
+                style: const TextStyle(color: Colors.white),
               ),
             ),
           )),

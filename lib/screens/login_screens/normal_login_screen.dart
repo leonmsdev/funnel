@@ -29,12 +29,18 @@ class NormalLoginScreen extends StatelessWidget {
               child: Container(
                 margin: const EdgeInsets.all(10.0),
                 decoration: BoxDecoration(
-                  image: const DecorationImage(
-                    image: AssetImage("lib/styles/images/login_bg_img.jpg"),
+                  image: DecorationImage(
+                    image: AssetImage(
+                        ScreenController.isMediumScreen(context) == true
+                            ? "lib/styles/images/medium_login_bg_img.jpg"
+                            : "lib/styles/images/login_bg_img.jpg"),
                     fit: BoxFit.fill,
                   ),
                   color: greyAccentColor,
                   borderRadius: BorderRadius.circular(10.0),
+                ),
+                child: Stack(
+                  children: [Container()],
                 ),
               ),
             ),
@@ -71,7 +77,7 @@ class NormalLoginScreen extends StatelessWidget {
                             child: Container(
                               height: 1,
                               width: 100,
-                              color: Color(0xFFC9D3DD),
+                              color: const Color(0xFFC9D3DD),
                             ),
                           ),
                           Padding(
@@ -79,14 +85,14 @@ class NormalLoginScreen extends StatelessWidget {
                                 const EdgeInsets.only(left: 10.0, right: 10.0),
                             child: CustomText(
                               text: 'or do it via',
-                              color: Color(0xFFB1BAC3),
+                              color: const Color(0xFFB1BAC3),
                             ),
                           ),
                           Expanded(
                             child: Container(
                               height: 1,
                               width: 100,
-                              color: Color(0xFFC9D3DD),
+                              color: const Color(0xFFC9D3DD),
                             ),
                           ),
                         ],
@@ -119,10 +125,24 @@ class NormalLoginScreen extends StatelessWidget {
                               },
                             ),
                             const SizedBox(height: 8),
-                            CustomText(
-                              text: 'Must be at least 8 characters',
-                              textAlign: TextAlign.left,
-                              fontSize: 13,
+                            Row(
+                              children: [
+                                CustomText(
+                                  text: 'Must be at least 8 characters',
+                                  textAlign: TextAlign.left,
+                                  fontSize: 12,
+                                ),
+                                const Spacer(),
+                                InkWell(
+                                  onTap: () {},
+                                  child: CustomText(
+                                    text: "Forgot yout password?",
+                                    fontSize: 12,
+                                    color: primaryAccentColor,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                )
+                              ],
                             ),
                             const SizedBox(height: 40),
                             Row(
