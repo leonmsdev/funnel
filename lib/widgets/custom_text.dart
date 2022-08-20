@@ -5,17 +5,17 @@ import 'package:provider/provider.dart';
 // ignore: must_be_immutable
 class CustomText extends StatelessWidget {
   final String text;
-  final double? size;
+  final double? fontSize;
   final Color? color;
-  final FontWeight? weight;
+  final FontWeight? fontWeight;
   TextAlign? textAlign = TextAlign.left;
 
   CustomText(
       {Key? key,
       required this.text,
-      this.size,
+      this.fontSize,
       this.color,
-      this.weight,
+      this.fontWeight,
       this.textAlign})
       : super(key: key);
 
@@ -26,12 +26,12 @@ class CustomText extends StatelessWidget {
         text,
         textAlign: textAlign,
         style: TextStyle(
-          fontSize: size ?? 13,
+          fontSize: fontSize ?? 13,
           color: color ??
               (Theme.of(context).brightness == Brightness.light
                   ? Colors.black
                   : Colors.white),
-          fontWeight: weight ?? FontWeight.normal,
+          fontWeight: fontWeight ?? FontWeight.normal,
         ),
       );
     });

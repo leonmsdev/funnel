@@ -1,12 +1,12 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:funnel/layout/layout.dart';
+import 'package:funnel/providers/auth_provider.dart';
+import 'package:funnel/firebase_options.dart';
 import 'package:funnel/providers/color_theme_provider.dart';
+import 'package:funnel/screens/login_screen.dart';
+import 'package:funnel/widgets/wrapper.dart';
 import 'package:provider/provider.dart';
-
-import 'firebase_options.dart';
+import 'screens/register_screen.dart';
 
 bool isDarkMode = false;
 
@@ -15,7 +15,7 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -23,9 +23,16 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (_) => ThemeProvider()..initialize(),
-      child: Master(),
+    return MultiProvider(
+      providers: [
+        Provider<AuthProvider>(
+          create: (_) => AuthProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => ThemeProvider()..initialize(),
+        ),
+      ],
+      child: const Master(),
     );
   }
 }
@@ -43,7 +50,12 @@ class Master extends StatelessWidget {
           theme: ThemeData.light(),
           darkTheme: ThemeData.dark(),
           themeMode: provider.themeMode,
-          home: Layout(),
+          initialRoute: '/',
+          routes: {
+            '/': (context) => const Wrapper(),
+            '/login': (context) => const LoginScreen(),
+            '/register': (context) => const RegisterScreen()
+          },
         );
       },
     );
