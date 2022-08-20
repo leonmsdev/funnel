@@ -64,8 +64,8 @@ class HeadingCard extends StatelessWidget {
               SizedBox(height: 10),
               CustomText(
                 text: heading.toString(),
-                size: 24,
-                weight: FontWeight.bold,
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
                 textAlign: TextAlign.center,
               ),
               SizedBox(height: 5),
