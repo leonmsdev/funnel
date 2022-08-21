@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:funnel/providers/auth_provider.dart';
 import 'package:funnel/widgets/custom_text.dart';
 import 'package:funnel/widgets/login_text_field.dart';
+
 import 'package:provider/provider.dart';
 
 class NormalRegisterScreen extends StatelessWidget {

@@ -9,13 +9,13 @@ class LoginTextField extends StatelessWidget {
   final String lableText;
   String? Function(String?)? validator;
 
-  LoginTextField(
-      {Key? key,
-      required this.controllerType,
-      required this.lableText,
-      this.obscureText = false,
-      this.validator})
-      : super(key: key);
+  LoginTextField({
+    Key? key,
+    required this.controllerType,
+    required this.lableText,
+    this.obscureText = false,
+    this.validator,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

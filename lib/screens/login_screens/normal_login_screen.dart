@@ -5,6 +5,7 @@ import 'package:funnel/styles/colors.dart';
 import 'package:funnel/widgets/color_text_button.dart';
 import 'package:funnel/widgets/custom_text.dart';
 import 'package:funnel/widgets/login_text_field.dart';
+import 'package:funnel/widgets/logo_button.dart';
 import 'package:funnel/widgets/reset_password.dart';
 import 'package:ndialog/ndialog.dart';
 import 'package:provider/provider.dart';
@@ -71,7 +72,26 @@ class NormalLoginScreen extends StatelessWidget {
                           )
                         ],
                       ),
-                      const SizedBox(height: 40),
+                      const SizedBox(height: 20),
+                      Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            LogoButton(
+                              logo: 'lib/styles/images/google_logo.png',
+                              onTap: () {},
+                            ),
+                            const SizedBox(width: 15),
+                            LogoButton(
+                              logo: 'lib/styles/images/apple_logo.png',
+                              onTap: () {},
+                            ),
+                            const SizedBox(width: 15),
+                            LogoButton(
+                              logo: 'lib/styles/images/facebook_logo.png',
+                              onTap: () {},
+                            )
+                          ]),
+                      const SizedBox(height: 30),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -191,6 +211,13 @@ class NormalLoginScreen extends StatelessWidget {
                                   },
                                 ),
                               ],
+                            ),
+                            const SizedBox(height: 40),
+                            Center(
+                              child: CustomText(
+                                text: '2022 All Rights Reserved',
+                                color: const Color(0xFFB4BEC7),
+                              ),
                             )
                           ],
                         ),

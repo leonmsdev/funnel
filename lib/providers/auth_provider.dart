@@ -41,10 +41,6 @@ class AuthProvider {
 
   Future resetPassword(String emailController) async {
     _firebaseAuth.sendPasswordResetEmail(email: emailController);
-
-    return SnackBar(
-      content: Text('Password reset is send to $emailController'),
-    );
   }
 
   Future<void> signOut() async {

@@ -6,6 +6,7 @@ import 'package:funnel/providers/color_theme_provider.dart';
 import 'package:funnel/screens/login_screens/normal_login_screen.dart';
 import 'package:funnel/screens/login_screens/small_login_screen.dart';
 import 'package:funnel/screens/login_screens/small_register_screen.dart';
+import 'package:funnel/styles/colors.dart';
 import 'package:funnel/widgets/wrapper.dart';
 import 'package:provider/provider.dart';
 import 'screens/login_screens/normal_register_screen.dart';
@@ -49,8 +50,12 @@ class Master extends StatelessWidget {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
           title: 'Flutter Demo',
-          theme: ThemeData.light(),
-          darkTheme: ThemeData.dark(),
+          theme: ThemeData.light().copyWith(
+            colorScheme: ColorScheme.fromSeed(seedColor: primaryAccentColor),
+          ),
+          darkTheme: ThemeData.dark().copyWith(
+            brightness: Brightness.light,
+          ),
           themeMode: provider.themeMode,
           initialRoute: '/',
           routes: {
