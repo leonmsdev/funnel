@@ -39,6 +39,7 @@ dependencies:
   firebase_auth: ^3.6.4
   google_fonts: ^3.0.1
   ndialog: ^4.1.1+1
+  heroicons: ^0.5.0
 
 dev_dependencies:
   flutter_test:
@@ -67,6 +68,9 @@ flutter:
     - lib/styles/images/illustration.jpg
     - lib/styles/images/login_bg_img.jpg
     - lib/styles/images/medium_login_bg_img.jpg
+    - lib/styles/images/google_logo.png
+    - lib/styles/images/apple_logo.png
+    - lib/styles/images/facebook_logo.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
