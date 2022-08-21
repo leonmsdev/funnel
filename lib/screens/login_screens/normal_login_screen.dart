@@ -7,7 +7,6 @@ import 'package:funnel/widgets/custom_text.dart';
 import 'package:funnel/widgets/login_text_field.dart';
 import 'package:funnel/widgets/logo_button.dart';
 import 'package:funnel/widgets/reset_password.dart';
-import 'package:ndialog/ndialog.dart';
 import 'package:provider/provider.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -141,8 +140,8 @@ class NormalLoginScreen extends StatelessWidget {
                               lableText: 'Password',
                               obscureText: true,
                               validator: (String? value) {
-                                return (value != null && value.length < 6)
-                                    ? 'Your password need to be atleast 6 chars long'
+                                return (value != null && value.length < 8)
+                                    ? 'Your password need to be atleast 8 chars long'
                                     : null;
                               },
                             ),
@@ -157,11 +156,26 @@ class NormalLoginScreen extends StatelessWidget {
                                 const Spacer(),
                                 InkWell(
                                   onTap: () async {
-                                    await NDialog(
-                                      dialogStyle:
-                                          DialogStyle(titleDivider: true),
-                                      content: ResetPassword(),
-                                    ).show(context);
+                                    showDialog(
+                                        context: context,
+                                        builder: (_) {
+                                          // ignore: todo
+                                          //TODO AlertDialog mit ResetPassword zu einem Widget umbauen.
+                                          return AlertDialog(
+                                            shape: const RoundedRectangleBorder(
+                                                borderRadius: BorderRadius.all(
+                                                    Radius.circular(20.0))),
+                                            title: ResetPassword(),
+                                          );
+                                        }).then((exit) {
+                                      if (exit == null) return;
+
+                                      if (exit) {
+                                        // user pressed Yes button
+                                      } else {
+                                        // user pressed No button
+                                      }
+                                    });
                                   },
                                   child: CustomText(
                                     text: "Forgot your password?",

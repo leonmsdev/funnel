@@ -5,8 +5,10 @@ import 'package:funnel/styles/colors.dart';
 class ColorTextButton extends StatelessWidget {
   final VoidCallback onTap;
   final String title;
+  final double fontSize;
 
-  const ColorTextButton({Key? key, required this.onTap, required this.title})
+  const ColorTextButton(
+      {Key? key, required this.onTap, required this.title, this.fontSize = 14})
       : super(key: key);
 
   @override
@@ -20,11 +22,11 @@ class ColorTextButton extends StatelessWidget {
             borderRadius: BorderRadius.circular(8),
           ),
           child: Padding(
-            padding: const EdgeInsets.all(13.0),
+            padding: const EdgeInsets.all(15.0),
             child: Text(
               title,
               textAlign: TextAlign.center,
-              style: const TextStyle(color: Colors.white),
+              style: TextStyle(color: Colors.white, fontSize: fontSize),
             ),
           ),
         ),
