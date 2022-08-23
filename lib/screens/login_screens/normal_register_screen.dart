@@ -30,10 +30,12 @@ class NormalRegisterScreen extends StatelessWidget {
               ),
               const SizedBox(height: 30),
               LoginTextField(
+                heading: 'Email',
                 controllerType: emailController,
                 lableText: 'Email',
               ),
               LoginTextField(
+                heading: 'Password',
                 controllerType: passwordController,
                 lableText: 'Email',
                 obscureText: true,

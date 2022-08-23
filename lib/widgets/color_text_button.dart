@@ -26,7 +26,10 @@ class ColorTextButton extends StatelessWidget {
             child: Text(
               title,
               textAlign: TextAlign.center,
-              style: TextStyle(color: Colors.white, fontSize: fontSize),
+              style: TextStyle(
+                  color: Colors.white,
+                  fontSize: fontSize,
+                  fontWeight: FontWeight.w500),
             ),
           ),
         ),

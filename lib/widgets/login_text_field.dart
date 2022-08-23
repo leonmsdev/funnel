@@ -7,6 +7,7 @@ class LoginTextField extends StatelessWidget {
   final TextEditingController controllerType;
   bool obscureText;
   final String lableText;
+  final String heading;
   String? Function(String?)? validator;
 
   LoginTextField({
@@ -15,6 +16,7 @@ class LoginTextField extends StatelessWidget {
     required this.lableText,
     this.obscureText = false,
     this.validator,
+    required this.heading,
   }) : super(key: key);
 
   @override
@@ -23,7 +25,7 @@ class LoginTextField extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         CustomText(
-          text: '$lableText:',
+          text: '$heading:',
           fontSize: 15,
           fontWeight: FontWeight.w600,
         ),
@@ -40,7 +42,7 @@ class LoginTextField extends StatelessWidget {
                 labelText: lableText,
                 labelStyle: const TextStyle(
                   color: Color(0xFF9BA3AB),
-                  fontSize: 15,
+                  fontSize: 13,
                 ),
                 filled: true,
                 fillColor: textFillColor,
