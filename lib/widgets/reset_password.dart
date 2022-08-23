@@ -3,6 +3,7 @@ import 'package:funnel/providers/auth_provider.dart';
 import 'package:funnel/widgets/color_text_button.dart';
 import 'package:funnel/widgets/custom_text.dart';
 import 'package:funnel/widgets/login_text_field.dart';
+import 'package:heroicons/heroicons.dart';
 import 'package:provider/provider.dart';
 
 class ResetPassword extends StatelessWidget {
@@ -46,6 +47,7 @@ class ResetPassword extends StatelessWidget {
               child: Column(
                 children: [
                   LoginTextField(
+                    heading: 'Email',
                     controllerType: emailController,
                     lableText: 'E-Mail',
                     validator: (String? value) {
@@ -68,6 +70,32 @@ class ResetPassword extends StatelessWidget {
                         }
                       },
                       title: 'Send password reset',
+                    ),
+                  ),
+                  SizedBox(height: 10),
+                  InkWell(
+                    onTap: () {
+                      Navigator.pop(context);
+                    },
+                    child: SizedBox(
+                      width: 130,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const HeroIcon(
+                            HeroIcons.arrowNarrowLeft,
+                            size: 15,
+                            color: Colors.grey,
+                          ),
+                          const SizedBox(width: 5),
+                          CustomText(
+                            text: 'Zurück zum Login',
+                            fontWeight: FontWeight.w500,
+                            color: Colors.grey,
+                            fontSize: 12,
+                          ),
+                        ],
+                      ),
                     ),
                   )
                 ],

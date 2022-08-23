@@ -4,6 +4,7 @@ import 'package:funnel/providers/auth_provider.dart';
 import 'package:funnel/styles/colors.dart';
 import 'package:funnel/widgets/color_text_button.dart';
 import 'package:funnel/widgets/custom_text.dart';
+import 'package:funnel/widgets/login_carousel_slider.dart';
 import 'package:funnel/widgets/login_text_field.dart';
 import 'package:funnel/widgets/logo_button.dart';
 import 'package:funnel/widgets/reset_password.dart';
@@ -29,6 +30,7 @@ class NormalLoginScreen extends StatelessWidget {
             Expanded(
               flex: 3,
               child: Container(
+                height: double.infinity,
                 margin: const EdgeInsets.all(10.0),
                 decoration: BoxDecoration(
                   image: DecorationImage(
@@ -41,8 +43,12 @@ class NormalLoginScreen extends StatelessWidget {
                   color: greyAccentColor,
                   borderRadius: BorderRadius.circular(10.0),
                 ),
-                child: Stack(
-                  children: [Container()],
+                child: Center(
+                  child: Stack(
+                    children: const [
+                      LoginCarouselSlider(),
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -65,31 +71,20 @@ class NormalLoginScreen extends StatelessWidget {
                             fontWeight: FontWeight.bold,
                           ),
                           Text(
-                            " Magics",
+                            " Magics.",
                             style: GoogleFonts.pacifico(
-                                fontSize: 38, fontWeight: FontWeight.w500),
+                              fontSize: 38,
+                              fontWeight: FontWeight.w500,
+                              color: primaryAccentColor,
+                            ),
                           )
                         ],
                       ),
-                      const SizedBox(height: 20),
-                      Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            LogoButton(
-                              logo: 'lib/styles/images/google_logo.png',
-                              onTap: () {},
-                            ),
-                            const SizedBox(width: 15),
-                            LogoButton(
-                              logo: 'lib/styles/images/apple_logo.png',
-                              onTap: () {},
-                            ),
-                            const SizedBox(width: 15),
-                            LogoButton(
-                              logo: 'lib/styles/images/facebook_logo.png',
-                              onTap: () {},
-                            )
-                          ]),
+                      const SizedBox(height: 50),
+                      LogoButton(
+                        logo: 'lib/styles/images/google_logo.png',
+                        onTap: () {},
+                      ),
                       const SizedBox(height: 30),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -105,8 +100,7 @@ class NormalLoginScreen extends StatelessWidget {
                             padding:
                                 const EdgeInsets.only(left: 10.0, right: 10.0),
                             child: CustomText(
-                              text: 'or do it via',
-                              color: const Color(0xFFB1BAC3),
+                              text: 'oder via',
                             ),
                           ),
                           Expanded(
@@ -118,41 +112,39 @@ class NormalLoginScreen extends StatelessWidget {
                           ),
                         ],
                       ),
-                      const SizedBox(height: 40),
+                      const SizedBox(height: 30),
                       Form(
                         key: formKey,
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             LoginTextField(
+                              heading: 'Email',
                               controllerType: emailController,
                               lableText: 'E-Mail',
                               obscureText: false,
                               validator: (String? value) {
                                 return (value != null && !value.contains('@'))
-                                    ? 'You need to enter a valid email address'
+                                    ? 'Deine Email ist ungültig.'
                                     : null;
                               },
                             ),
                             const SizedBox(height: 25),
                             LoginTextField(
+                              heading: 'Passwort',
                               controllerType: passwordController,
-                              lableText: 'Password',
+                              lableText:
+                                  'Dein Passwort muss mindestens 8 Zeichen lang sein.',
                               obscureText: true,
                               validator: (String? value) {
                                 return (value != null && value.length < 8)
-                                    ? 'Your password need to be atleast 8 chars long'
+                                    ? 'Dein Passwort muss mindestens 8 Zeichen lang sein.'
                                     : null;
                               },
                             ),
                             const SizedBox(height: 8),
                             Row(
                               children: [
-                                CustomText(
-                                  text: 'Must be at least 8 characters',
-                                  textAlign: TextAlign.left,
-                                  fontSize: 12,
-                                ),
                                 const Spacer(),
                                 InkWell(
                                   onTap: () async {
@@ -178,7 +170,7 @@ class NormalLoginScreen extends StatelessWidget {
                                     });
                                   },
                                   child: CustomText(
-                                    text: "Forgot your password?",
+                                    text: "Passwort vergessen?",
                                     fontSize: 12,
                                     color: primaryAccentColor,
                                     fontWeight: FontWeight.w600,
@@ -191,6 +183,7 @@ class NormalLoginScreen extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 ColorTextButton(
+                                  fontSize: 16,
                                   title: 'Log in',
                                   onTap: () async {
                                     final isValidForm =
@@ -205,11 +198,14 @@ class NormalLoginScreen extends StatelessWidget {
                                     }
                                   },
                                 ),
-                                const SizedBox(
-                                  width: 20,
-                                ),
-                                ColorTextButton(
-                                  title: 'Register now',
+                              ],
+                            ),
+                            const SizedBox(height: 8),
+                            Row(
+                              children: [
+                                CustomText(text: 'Du hast noch kein Konto?'),
+                                SizedBox(width: 5),
+                                InkWell(
                                   onTap: () {
                                     if (ScreenController.isLargeScreen(
                                             context) ||
@@ -223,14 +219,23 @@ class NormalLoginScreen extends StatelessWidget {
                                           context, '/small_register');
                                     }
                                   },
+                                  child: CustomText(
+                                    text: "Registrieren",
+                                    fontSize: 12,
+                                    color: primaryAccentColor,
+                                    fontWeight: FontWeight.w600,
+                                  ),
                                 ),
                               ],
                             ),
                             const SizedBox(height: 40),
                             Center(
-                              child: CustomText(
-                                text: '2022 All Rights Reserved',
-                                color: const Color(0xFFB4BEC7),
+                              child: InkWell(
+                                onTap: () {},
+                                child: CustomText(
+                                  text: '© 2022 All Rights Reserved',
+                                  color: const Color(0xFFB4BEC7),
+                                ),
                               ),
                             )
                           ],
