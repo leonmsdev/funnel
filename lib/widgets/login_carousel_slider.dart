@@ -33,7 +33,7 @@ class _LoginCarouselSliderState extends State<LoginCarouselSlider> {
                     margin: const EdgeInsets.symmetric(horizontal: 5.0),
                     child: Column(
                       children: [
-                        IconCircle(),
+                        const IconCircle(),
                         Text(i),
                       ],
                     ),
@@ -78,7 +78,7 @@ class _LoginCarouselSliderState extends State<LoginCarouselSlider> {
 class IconCircle extends StatelessWidget {
   final String icon;
 
-  IconCircle({Key? key, this.icon = ''}) : super(key: key);
+  const IconCircle({Key? key, this.icon = ''}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -87,7 +87,7 @@ class IconCircle extends StatelessWidget {
       radius: 80,
       child: Text(
         icon,
-        style: TextStyle(fontSize: 60),
+        style: const TextStyle(fontSize: 60),
       ),
     );
   }

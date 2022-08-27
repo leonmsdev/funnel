@@ -5,21 +5,26 @@ import 'package:provider/provider.dart';
 
 // ignore: must_be_immutable
 class HeadingCard extends StatelessWidget {
-  String heading;
-  String sideHeading;
+  final String heading;
+  final String sideHeading;
+  final VoidCallback? onTap;
 
-  HeadingCard({
+  const HeadingCard({
     Key? key,
     required this.heading,
     required this.sideHeading,
+    this.onTap,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Consumer(builder: (context, provider, child) {
-      return InkWell(
-        onTap: () {},
-        child: Container(
+    return InkWell(
+      customBorder: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(25),
+      ),
+      onTap: onTap,
+      child: Consumer(builder: (context, provider, child) {
+        return Container(
           width: 180,
           padding: EdgeInsets.all(15.0),
           decoration: BoxDecoration(
@@ -76,8 +81,8 @@ class HeadingCard extends StatelessWidget {
               SizedBox(height: 10),
             ],
           ),
-        ),
-      );
-    });
+        );
+      }),
+    );
   }
 }

@@ -72,7 +72,7 @@ class ResetPassword extends StatelessWidget {
                       title: 'Send password reset',
                     ),
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   InkWell(
                     onTap: () {
                       Navigator.pop(context);

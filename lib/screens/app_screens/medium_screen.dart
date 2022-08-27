@@ -22,7 +22,7 @@ class MediumScreen extends StatelessWidget {
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
+                  children: const [
                     HeadingCard(
                       heading: "Funnels",
                       sideHeading: "settings",

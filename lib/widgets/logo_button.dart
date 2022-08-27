@@ -4,7 +4,9 @@ import 'package:funnel/widgets/custom_text.dart';
 class LogoButton extends StatelessWidget {
   final String logo;
   final VoidCallback onTap;
-  const LogoButton({Key? key, required this.logo, required this.onTap})
+  final String text;
+  const LogoButton(
+      {Key? key, required this.logo, required this.onTap, required this.text})
       : super(key: key);
 
   @override
@@ -37,9 +39,9 @@ class LogoButton extends StatelessWidget {
                 borderRadius: BorderRadius.circular(10.0),
               ),
             ),
-            SizedBox(width: 10),
+            const SizedBox(width: 10),
             CustomText(
-              text: 'Mit Google anmelden',
+              text: text,
               fontWeight: FontWeight.w500,
             )
           ],

@@ -19,8 +19,8 @@ class NormalLoginScreen extends StatelessWidget {
     final emailController = TextEditingController();
     final passwordController = TextEditingController();
     final formKey = GlobalKey<FormState>();
-
     final authService = Provider.of<AuthProvider>(context);
+
     return Scaffold(
       body: SizedBox(
         width: double.infinity,
@@ -31,17 +31,14 @@ class NormalLoginScreen extends StatelessWidget {
               flex: 3,
               child: Container(
                 height: double.infinity,
-                margin: const EdgeInsets.all(10.0),
+                margin: const EdgeInsets.all(20.0),
                 decoration: BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage(
-                        ScreenController.isMediumScreen(context) == true
-                            ? "lib/styles/images/medium_login_bg_img.jpg"
-                            : "lib/styles/images/login_bg_img.jpg"),
+                  image: const DecorationImage(
+                    image: AssetImage("lib/styles/images/mountan.jpg"),
                     fit: BoxFit.fill,
                   ),
                   color: greyAccentColor,
-                  borderRadius: BorderRadius.circular(10.0),
+                  borderRadius: BorderRadius.circular(20.0),
                 ),
                 child: Center(
                   child: Stack(
@@ -83,6 +80,7 @@ class NormalLoginScreen extends StatelessWidget {
                       const SizedBox(height: 50),
                       LogoButton(
                         logo: 'lib/styles/images/google_logo.png',
+                        text: 'Mit Google anmelden',
                         onTap: () {},
                       ),
                       const SizedBox(height: 30),
@@ -204,7 +202,7 @@ class NormalLoginScreen extends StatelessWidget {
                             Row(
                               children: [
                                 CustomText(text: 'Du hast noch kein Konto?'),
-                                SizedBox(width: 5),
+                                const SizedBox(width: 5),
                                 InkWell(
                                   onTap: () {
                                     if (ScreenController.isLargeScreen(

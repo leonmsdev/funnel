@@ -26,8 +26,11 @@ class LargeScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     HeadingCard(
-                      heading: "Funnels",
+                      heading: "Builder",
                       sideHeading: "settings",
+                      onTap: () {
+                        Navigator.pushNamed(context, '/app_builder');
+                      },
                     ),
                     HeadingCard(
                       heading: "CICD",
