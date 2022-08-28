@@ -32,10 +32,6 @@ class LargeScreen extends StatelessWidget {
                         Navigator.pushNamed(context, '/app_builder');
                       },
                     ),
-                    HeadingCard(
-                      heading: "CICD",
-                      sideHeading: "automate it",
-                    ),
                   ],
                 ),
                 const SizedBox(height: 50),

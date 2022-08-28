@@ -31,7 +31,7 @@ class NormalLoginScreen extends StatelessWidget {
               flex: 3,
               child: Container(
                 height: double.infinity,
-                margin: const EdgeInsets.all(20.0),
+                margin: const EdgeInsets.only(top: 20.0, left: 20, right: 20),
                 decoration: BoxDecoration(
                   image: const DecorationImage(
                     image: AssetImage("lib/styles/images/mountan.jpg"),

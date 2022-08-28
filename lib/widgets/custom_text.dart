@@ -9,6 +9,7 @@ class CustomText extends StatelessWidget {
   final Color? color;
   final FontWeight? fontWeight;
   TextAlign? textAlign = TextAlign.left;
+  final TextDecoration? underline;
 
   CustomText(
       {Key? key,
@@ -16,7 +17,8 @@ class CustomText extends StatelessWidget {
       this.fontSize,
       this.color,
       this.fontWeight,
-      this.textAlign})
+      this.textAlign,
+      this.underline})
       : super(key: key);
 
   @override
@@ -26,13 +28,13 @@ class CustomText extends StatelessWidget {
         text,
         textAlign: textAlign,
         style: TextStyle(
-          fontSize: fontSize ?? 13,
-          color: color ??
-              (Theme.of(context).brightness == Brightness.light
-                  ? Colors.black
-                  : Colors.white),
-          fontWeight: fontWeight ?? FontWeight.normal,
-        ),
+            fontSize: fontSize ?? 13,
+            color: color ??
+                (Theme.of(context).brightness == Brightness.light
+                    ? Colors.black
+                    : Colors.white),
+            fontWeight: fontWeight ?? FontWeight.normal,
+            decoration: underline),
       );
     });
   }
