@@ -8,4 +8,8 @@ Color primaryAccentColor = Colors.blueAccent;
 Color builderBackground = const Color(0xFFF2F4F5);
 Color blueGreyColor = const Color.fromARGB(255, 238, 242, 248);
 Color mediumGrey = const Color.fromARGB(255, 240, 243, 245);
+
+Color darkBuilderBackground = const Color(0xFF1B1C1C);
+Color darkMenuBackground = const Color(0xFF242424);
+Color dakrIconBackground = const Color(0xFF2F2F2F);
 // Color.fromARGB(255, 161, 141, 113); Jessi

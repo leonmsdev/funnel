@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:funnel/widgets/theme_dropdown_button.dart';
 import 'package:heroicons/heroicons.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -34,7 +33,6 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
             },
             icon: const HeroIcon(HeroIcons.home),
           ),
-          const ThemeDropdownButton(),
         ],
       ),
     );
