@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:heroicons/heroicons.dart';
+import 'package:funnel/styles/colors.dart';
 
-class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
+class TopNavigation extends StatelessWidget implements PreferredSizeWidget {
   final double height;
 
   // ignore: use_key_in_widget_constructors
-  const CustomAppBar({
+  const TopNavigation({
     this.height = kToolbarHeight,
   });
 
@@ -16,6 +16,9 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
+        color: Theme.of(context).brightness == Brightness.light
+            ? Colors.white
+            : darkMenuBackground,
         border: Border(
           bottom: BorderSide(
             width: 1,
@@ -26,14 +29,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       height: preferredSize.height,
       alignment: Alignment.center,
       child: Row(
-        children: [
-          IconButton(
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            icon: const HeroIcon(HeroIcons.home),
-          ),
-        ],
+        children: const [],
       ),
     );
   }

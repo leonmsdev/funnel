@@ -3,7 +3,6 @@
 import 'package:flutter/material.dart';
 import 'package:funnel/providers/auth_provider.dart';
 import 'package:funnel/widgets/card.dart';
-import 'package:funnel/widgets/theme_dropdown_button.dart';
 import 'package:provider/provider.dart';
 
 class LargeScreen extends StatelessWidget {
@@ -34,8 +33,6 @@ class LargeScreen extends StatelessWidget {
                     ),
                   ],
                 ),
-                const SizedBox(height: 50),
-                ThemeDropdownButton(),
                 const SizedBox(height: 40),
                 IconButton(
                     onPressed: () async {

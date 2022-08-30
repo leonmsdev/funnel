@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 import 'package:flutter/material.dart';
+import 'package:funnel/styles/colors.dart';
 import 'package:funnel/widgets/custom_text.dart';
 import 'package:provider/provider.dart';
 
@@ -30,7 +31,7 @@ class HeadingCard extends StatelessWidget {
           decoration: BoxDecoration(
             color: Theme.of(context).brightness == Brightness.light
                 ? Colors.white
-                : Colors.black,
+                : darkMenuBackground,
             borderRadius: BorderRadius.circular(25),
             border: Border.all(
               width: .5,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:funnel/styles/colors.dart';
 import 'package:funnel/widgets/theme_dropdown_button.dart';
 import 'package:heroicons/heroicons.dart';
 
@@ -14,7 +15,9 @@ class Settings extends StatelessWidget {
         Container(
           width: 400,
           decoration: BoxDecoration(
-            color: Colors.white,
+            color: Theme.of(context).brightness == Brightness.light
+                ? Colors.white
+                : darkMenuBackground,
             borderRadius: BorderRadius.circular(20),
           ),
           child: Center(
@@ -41,44 +44,23 @@ class Settings extends StatelessWidget {
                 ),
                 const SizedBox(height: 27),
                 CustomText(
-                    text: "Feel free to customise magics to your needs."),
+                    text: "Feel free to customise Magics to your needs."),
+                const Divider(),
                 const SizedBox(
                   height: 20,
                 ),
+                CustomText(text: "Change color theme:"),
                 const ThemeDropdownButton(),
                 const SizedBox(
                   height: 20,
                 ),
-                Column(
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
-                    const SizedBox(height: 10),
-                    InkWell(
-                      onTap: () {
-                        Navigator.pop(context);
-                      },
-                      child: SizedBox(
-                        width: 130,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            const HeroIcon(
-                              HeroIcons.arrowNarrowLeft,
-                              size: 15,
-                              color: Colors.grey,
-                            ),
-                            const SizedBox(width: 5),
-                            CustomText(
-                              text: 'Zurück zum Login',
-                              fontWeight: FontWeight.w500,
-                              color: Colors.grey,
-                              fontSize: 12,
-                            ),
-                          ],
-                        ),
-                      ),
-                    )
+                    Spacer(),
+                    CustomText(text: 'Version: v0.0.1'),
                   ],
-                ),
+                )
               ],
             ),
           ),

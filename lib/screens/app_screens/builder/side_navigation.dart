@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:funnel/providers/side_navigation_provider.dart';
+import 'package:funnel/styles/colors.dart';
 import 'package:funnel/widgets/settings.dart';
 import 'package:heroicons/heroicons.dart';
 import 'package:provider/provider.dart';
@@ -14,7 +15,9 @@ class SideNavigation extends StatelessWidget {
     return Consumer(builder: (context, provider, child) {
       return Container(
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: Theme.of(context).brightness == Brightness.light
+              ? Colors.white
+              : darkMenuBackground,
           border: Border(
             right: BorderSide(
               width: 1,
@@ -26,6 +29,7 @@ class SideNavigation extends StatelessWidget {
         height: double.infinity,
         child: Column(
           children: [
+            const SizedBox(height: 10),
             IconButton(
               onPressed: () {
                 sideNavigation.changeSideNavigationState();
@@ -37,6 +41,16 @@ class SideNavigation extends StatelessWidget {
                 size: 20,
               ),
             ),
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 10.0),
+              child: Divider(),
+            ),
+            IconButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              icon: const HeroIcon(HeroIcons.home),
+            ),
             const Spacer(),
             InkWell(
               onTap: () async {
@@ -44,12 +58,18 @@ class SideNavigation extends StatelessWidget {
                     context: context,
                     builder: (_) {
                       // ignore: todo
-                      //TODO AlertDialog mit ResetPassword zu einem Widget umbauen.
-                      return const AlertDialog(
-                        shape: RoundedRectangleBorder(
+                      //TODO AlertDialog mit Settings zu einem Widget umbauen.
+                      return AlertDialog(
+                        contentPadding: const EdgeInsets.all(0),
+                        insetPadding: const EdgeInsets.symmetric(horizontal: 0),
+                        backgroundColor:
+                            Theme.of(context).brightness == Brightness.light
+                                ? Colors.white
+                                : darkMenuBackground,
+                        shape: const RoundedRectangleBorder(
                             borderRadius:
                                 BorderRadius.all(Radius.circular(20.0))),
-                        title: Settings(),
+                        title: const Settings(),
                       );
                     }).then((exit) {
                   if (exit == null) return;

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:funnel/screens/app_screens/builder/items.dart';
 
 class FunnelRender extends StatelessWidget {
   const FunnelRender({
@@ -12,19 +13,28 @@ class FunnelRender extends StatelessWidget {
         width: 390,
         height: 844,
         decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(15),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black.withOpacity(.03),
-                blurRadius: 25.0, // soften the shadow
-                spreadRadius: 5.0, //extend the shadow
-                offset: const Offset(
-                  0.0, // Move to right 10  horizontally
-                  3.0, // Move to bottom 10 Vertically
-                ),
-              )
-            ]),
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(15),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(.03),
+              blurRadius: 25, // soften the shadow
+              spreadRadius: 5, //extend the shadow
+              offset: const Offset(
+                0, // Move to right 10  horizontally
+                3, // Move to bottom 10 Vertically
+              ),
+            )
+          ],
+        ),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 10),
+          child: Column(
+            children: [
+              HeadingItem(),
+            ],
+          ),
+        ),
       ),
     );
   }

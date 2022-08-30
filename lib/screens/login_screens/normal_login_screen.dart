@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:funnel/controllers/screen_controller.dart';
 import 'package:funnel/providers/auth_provider.dart';
@@ -20,6 +21,7 @@ class NormalLoginScreen extends StatelessWidget {
     final passwordController = TextEditingController();
     final formKey = GlobalKey<FormState>();
     final authService = Provider.of<AuthProvider>(context);
+    String errorMessage = '';
 
     return Scaffold(
       body: SizedBox(
@@ -31,21 +33,14 @@ class NormalLoginScreen extends StatelessWidget {
               flex: 3,
               child: Container(
                 height: double.infinity,
-                margin: const EdgeInsets.only(top: 20.0, left: 20, right: 20),
+                margin: const EdgeInsets.all(20),
                 decoration: BoxDecoration(
                   image: const DecorationImage(
-                    image: AssetImage("lib/styles/images/mountan.jpg"),
-                    fit: BoxFit.fill,
+                    image: AssetImage("lib/styles/images/office.jpg"),
+                    fit: BoxFit.cover,
                   ),
                   color: greyAccentColor,
                   borderRadius: BorderRadius.circular(20.0),
-                ),
-                child: Center(
-                  child: Stack(
-                    children: const [
-                      LoginCarouselSlider(),
-                    ],
-                  ),
                 ),
               ),
             ),
@@ -56,7 +51,7 @@ class NormalLoginScreen extends StatelessWidget {
                   width: 400,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
                       Row(
                         crossAxisAlignment: CrossAxisAlignment.center,
@@ -117,29 +112,19 @@ class NormalLoginScreen extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             LoginTextField(
-                              heading: 'Email',
-                              controllerType: emailController,
-                              lableText: 'E-Mail',
-                              obscureText: false,
-                              validator: (String? value) {
-                                return (value != null && !value.contains('@'))
-                                    ? 'Deine Email ist ungültig.'
-                                    : null;
-                              },
-                            ),
+                                heading: 'Email',
+                                controllerType: emailController,
+                                lableText: 'E-Mail',
+                                obscureText: false,
+                                validator: validateEmail),
                             const SizedBox(height: 25),
                             LoginTextField(
-                              heading: 'Passwort',
-                              controllerType: passwordController,
-                              lableText:
-                                  'Dein Passwort muss mindestens 8 Zeichen lang sein.',
-                              obscureText: true,
-                              validator: (String? value) {
-                                return (value != null && value.length < 8)
-                                    ? 'Dein Passwort muss mindestens 8 Zeichen lang sein.'
-                                    : null;
-                              },
-                            ),
+                                heading: 'Passwort',
+                                controllerType: passwordController,
+                                lableText:
+                                    'Dein Passwort muss mindestens 8 Zeichen lang sein.',
+                                obscureText: true,
+                                validator: validatePassword),
                             const SizedBox(height: 8),
                             Row(
                               children: [
@@ -177,9 +162,14 @@ class NormalLoginScreen extends StatelessWidget {
                               ],
                             ),
                             const SizedBox(height: 40),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.stretch,
                               children: [
+                                Center(
+                                  child: CustomText(
+                                    text: errorMessage,
+                                  ),
+                                ),
                                 ColorTextButton(
                                   fontSize: 16,
                                   title: 'Log in',
@@ -188,11 +178,16 @@ class NormalLoginScreen extends StatelessWidget {
                                         formKey.currentState!.validate();
 
                                     if (isValidForm) {
-                                      await authService
-                                          .signInWithEmailAndPassword(
-                                        emailController.text,
-                                        passwordController.text,
-                                      );
+                                      try {
+                                        await authService
+                                            .signInWithEmailAndPassword(
+                                          emailController.text,
+                                          passwordController.text,
+                                        );
+                                        errorMessage = '';
+                                      } on FirebaseAuthException catch (error) {
+                                        errorMessage = error.message!;
+                                      }
                                     }
                                   },
                                 ),
@@ -249,4 +244,32 @@ class NormalLoginScreen extends StatelessWidget {
       ),
     );
   }
+}
+
+String? validateEmail(String? formEmail) {
+  if (formEmail == null || formEmail.isEmpty) {
+    return 'Bitte gebe eine E-Mail an.';
+  }
+
+  String pattern = r'\w+@\w+\.\w+';
+  RegExp regex = RegExp(pattern);
+  if (!regex.hasMatch(formEmail)) {
+    return 'Bitte geben sie eine korrekte E-Mail Adresse an.';
+  }
+  return null;
+}
+
+String? validatePassword(String? formPassword) {
+  if (formPassword == null || formPassword.isEmpty) {
+    return 'Bitte geben sie ein Password an.';
+  }
+  String pattern = r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}$';
+  RegExp regex = RegExp(pattern);
+  if (!regex.hasMatch(formPassword)) {
+    return '''
+Ihr Passwort muss mindestens 8 Zeichen lang sein,
+und ein Großbuchstaben sowie eine Zahl beinhalten.
+''';
+  }
+  return null;
 }
