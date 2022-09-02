@@ -5,7 +5,6 @@ import 'package:funnel/providers/auth_provider.dart';
 import 'package:funnel/styles/colors.dart';
 import 'package:funnel/widgets/color_text_button.dart';
 import 'package:funnel/widgets/custom_text.dart';
-import 'package:funnel/widgets/login_carousel_slider.dart';
 import 'package:funnel/widgets/login_text_field.dart';
 import 'package:funnel/widgets/logo_button.dart';
 import 'package:funnel/widgets/reset_password.dart';

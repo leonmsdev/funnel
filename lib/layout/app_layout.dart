@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:funnel/controllers/screen_controller.dart';
-import 'package:funnel/screens/app_screens/medium_screen.dart';
-import '../screens/app_screens/large_screen.dart';
-import '../screens/app_screens/small_screen.dart';
+import 'package:funnel/screens/home_screen/medium_screen.dart';
+import '../screens/home_screen/large_screen.dart';
+import '../screens/home_screen/small_screen.dart';
 
 // ignore: use_key_in_widget_constructors
 class AppLayout extends StatelessWidget {

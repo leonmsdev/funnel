@@ -3,8 +3,8 @@ import 'package:funnel/styles/colors.dart';
 import 'package:funnel/widgets/custom_text.dart';
 import 'package:funnel/widgets/drag_item.dart';
 
-class SideItemMenu extends StatelessWidget {
-  const SideItemMenu({
+class SideMenu extends StatelessWidget {
+  const SideMenu({
     Key? key,
   }) : super(key: key);
 

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:funnel/screens/app_screens/builder/items.dart';
+import 'package:funnel/screens/builder_screen/side_menu/widgets/heading_item.dart';
 
 class FunnelRender extends StatelessWidget {
   const FunnelRender({

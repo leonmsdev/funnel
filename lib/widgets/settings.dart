@@ -57,7 +57,7 @@ class Settings extends StatelessWidget {
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
-                    Spacer(),
+                    const Spacer(),
                     CustomText(text: 'Version: v0.0.1'),
                   ],
                 )

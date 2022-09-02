@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:funnel/screens/app_screens/builder/funnel_render.dart';
-import 'package:funnel/screens/app_screens/builder/rigth_menu.dart';
+import 'package:funnel/screens/builder_screen/funnel_render.dart';
+import 'package:funnel/screens/builder_screen/rigth_menu/rigth_menu.dart';
 import 'package:funnel/widgets/top_navigation.dart';
 import 'package:funnel/styles/colors.dart';
-import 'package:funnel/screens/app_screens/builder/side_menu_item.dart';
-import 'package:funnel/screens/app_screens/builder/side_navigation.dart';
+import 'package:funnel/screens/app_screens/builder_screen/side_menu/side_menu.dart';
+import 'package:funnel/screens/app_screens/builder_screen/side_menu/side_navigation.dart';
 
 // ignore: must_be_immutable
 class AppBuilder extends StatelessWidget {
@@ -24,7 +24,7 @@ class AppBuilder extends StatelessWidget {
         child: Row(
           children: [
             const SideNavigation(),
-            const SideItemMenu(),
+            const SideMenu(),
             Expanded(
               flex: 9,
               child: ListView(
@@ -44,7 +44,7 @@ class AppBuilder extends StatelessWidget {
                 ],
               ),
             ),
-            RigthMenu(),
+            const RigthMenu(),
           ],
         ),
       ),
