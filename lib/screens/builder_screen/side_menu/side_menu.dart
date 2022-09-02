@@ -1,23 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:funnel/styles/colors.dart';
 import 'package:funnel/widgets/custom_text.dart';
+import 'package:funnel/widgets/drag_item.dart';
 
-class SideItemMenu extends StatelessWidget {
-  const SideItemMenu({
+class SideMenu extends StatelessWidget {
+  const SideMenu({
     Key? key,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Expanded(
-      flex: 2,
+      flex: 4,
       child: Container(
         padding: const EdgeInsets.symmetric(
           horizontal: 20,
           vertical: 20,
         ),
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: Theme.of(context).brightness == Brightness.light
+              ? Colors.white
+              : darkMenuBackground,
           border: Border(
             right: BorderSide(
               width: 1,
@@ -26,11 +29,12 @@ class SideItemMenu extends StatelessWidget {
           ),
         ),
         child: GridView.count(
-          crossAxisSpacing: 20,
-          mainAxisSpacing: 20,
+          crossAxisSpacing: 15,
+          mainAxisSpacing: 15,
           crossAxisCount: 2,
           children: [
             DragItemWidget(
+              onTap: () {},
               heading: 'Heading',
               body: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -45,10 +49,12 @@ class SideItemMenu extends StatelessWidget {
                   ),
                   Container(
                     decoration: BoxDecoration(
-                      color: mediumGrey,
+                      color: Theme.of(context).brightness == Brightness.light
+                          ? mediumGrey
+                          : darkIconBackground,
                       borderRadius: BorderRadius.circular(3),
                     ),
-                    height: 13,
+                    height: 12,
                     width: double.infinity,
                   ),
                   const SizedBox(
@@ -56,10 +62,12 @@ class SideItemMenu extends StatelessWidget {
                   ),
                   Container(
                     decoration: BoxDecoration(
-                      color: mediumGrey,
+                      color: Theme.of(context).brightness == Brightness.light
+                          ? mediumGrey
+                          : darkIconBackground,
                       borderRadius: BorderRadius.circular(3),
                     ),
-                    height: 13,
+                    height: 12,
                   ),
                 ],
               ),
@@ -71,25 +79,31 @@ class SideItemMenu extends StatelessWidget {
                 children: [
                   Container(
                     decoration: BoxDecoration(
-                      color: mediumGrey,
+                      color: Theme.of(context).brightness == Brightness.light
+                          ? mediumGrey
+                          : darkIconBackground,
                       borderRadius: BorderRadius.circular(3),
                     ),
-                    height: 13,
+                    height: 12,
                     width: 70,
                   ),
                   const SizedBox(height: 9),
                   Container(
                     decoration: BoxDecoration(
-                      color: mediumGrey,
+                      color: Theme.of(context).brightness == Brightness.light
+                          ? mediumGrey
+                          : darkIconBackground,
                       borderRadius: BorderRadius.circular(3),
                     ),
-                    height: 13,
+                    height: 12,
                     width: 90,
                   ),
                   const SizedBox(height: 9),
                   Container(
                     decoration: BoxDecoration(
-                      color: mediumGrey,
+                      color: Theme.of(context).brightness == Brightness.light
+                          ? mediumGrey
+                          : darkIconBackground,
                       borderRadius: BorderRadius.circular(3),
                     ),
                     height: 13,
@@ -109,22 +123,31 @@ class SideItemMenu extends StatelessWidget {
                         children: [
                           Container(
                             decoration: BoxDecoration(
-                              color: mediumGrey,
-                              borderRadius: BorderRadius.circular(3),
+                              color: Theme.of(context).brightness ==
+                                      Brightness.light
+                                  ? mediumGrey
+                                  : darkIconBackground,
+                              borderRadius: Theme.of(context).brightness ==
+                                      Brightness.light
+                                  ? null
+                                  : BorderRadius.circular(3),
                             ),
-                            height: 13,
-                            width: 48,
+                            height: 12,
+                            width: 46,
                           ),
                           const SizedBox(
                             height: 8,
                           ),
                           Container(
                             decoration: BoxDecoration(
-                              color: mediumGrey,
+                              color: Theme.of(context).brightness ==
+                                      Brightness.light
+                                  ? mediumGrey
+                                  : darkIconBackground,
                               borderRadius: BorderRadius.circular(3),
                             ),
-                            height: 13,
-                            width: 48,
+                            height: 12,
+                            width: 44,
                           ),
                         ],
                       ),
@@ -133,7 +156,10 @@ class SideItemMenu extends StatelessWidget {
                       ),
                       Container(
                         decoration: BoxDecoration(
-                          color: mediumGrey,
+                          color:
+                              Theme.of(context).brightness == Brightness.light
+                                  ? mediumGrey
+                                  : darkIconBackground,
                           borderRadius: BorderRadius.circular(3),
                         ),
                         height: 34,
@@ -170,19 +196,23 @@ class SideItemMenu extends StatelessWidget {
                 children: [
                   Container(
                     decoration: BoxDecoration(
-                      color: mediumGrey,
+                      color: Theme.of(context).brightness == Brightness.light
+                          ? mediumGrey
+                          : darkIconBackground,
                       borderRadius: BorderRadius.circular(3),
                     ),
-                    height: 13,
+                    height: 12,
                     width: double.infinity,
                   ),
                   const SizedBox(height: 8),
                   Container(
                     decoration: BoxDecoration(
-                      color: mediumGrey,
+                      color: Theme.of(context).brightness == Brightness.light
+                          ? mediumGrey
+                          : darkIconBackground,
                       borderRadius: BorderRadius.circular(3),
                     ),
-                    height: 13,
+                    height: 12,
                   ),
                   const SizedBox(height: 8),
                   CustomText(
@@ -202,7 +232,7 @@ class SideItemMenu extends StatelessWidget {
                   Expanded(
                     child: Container(
                       decoration: BoxDecoration(
-                        color: primaryAccentColor.withOpacity(.15),
+                        color: primaryAccentColor.withOpacity(.20),
                         borderRadius: BorderRadius.circular(3),
                       ),
                       height: 13,
@@ -217,7 +247,9 @@ class SideItemMenu extends StatelessWidget {
                   const SizedBox(height: 8),
                   Container(
                     decoration: BoxDecoration(
-                      color: mediumGrey,
+                      color: Theme.of(context).brightness == Brightness.light
+                          ? mediumGrey
+                          : darkIconBackground,
                       borderRadius: BorderRadius.circular(3),
                     ),
                     height: 13,
@@ -229,66 +261,6 @@ class SideItemMenu extends StatelessWidget {
           // Generate 100 widgets that display their index in the List.
         ),
       ),
-    );
-  }
-}
-
-class DragItemWidget extends StatelessWidget {
-  final String heading;
-  final VoidCallback? onTap;
-  final Widget? body;
-
-  const DragItemWidget({
-    Key? key,
-    required this.heading,
-    this.onTap,
-    this.body,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        CustomText(
-          text: heading,
-          fontWeight: FontWeight.bold,
-          textAlign: TextAlign.start,
-        ),
-        const SizedBox(
-          height: 10,
-        ),
-        InkWell(
-          onTap: onTap,
-          child: Container(
-            decoration: BoxDecoration(
-              color: blueGreyColor,
-              borderRadius: BorderRadius.circular(10),
-            ),
-            child: Padding(
-              padding: const EdgeInsets.symmetric(
-                horizontal: 15,
-                vertical: 15,
-              ),
-              child: Stack(
-                children: [
-                  Container(
-                    height: 77,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(10.0),
-                      child: body,
-                    ),
-                  )
-                ],
-              ),
-            ),
-          ),
-        ),
-      ],
     );
   }
 }

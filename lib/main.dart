@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:funnel/providers/auth_provider.dart';
 import 'package:funnel/firebase_options.dart';
 import 'package:funnel/providers/color_theme_provider.dart';
+import 'package:funnel/providers/item_provider.dart';
 import 'package:funnel/providers/side_navigation_provider.dart';
-import 'package:funnel/screens/app_screens/builder/builder.dart';
+import 'package:funnel/screens/builder_screen/builder_screen.dart';
 import 'package:funnel/screens/login_screens/normal_login_screen.dart';
 import 'package:funnel/screens/login_screens/small_login_screen.dart';
 import 'package:funnel/screens/login_screens/small_register_screen.dart';
@@ -39,6 +40,9 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(
           create: (_) => SideNavigationProvider(),
         ),
+        ChangeNotifierProvider(
+          create: (_) => ItemProvider(),
+        )
       ],
       child: const Master(),
     );
