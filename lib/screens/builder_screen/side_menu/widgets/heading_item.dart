@@ -6,10 +6,8 @@ import 'package:funnel/styles/colors.dart';
 import 'package:provider/provider.dart';
 
 class HeadingItem extends StatelessWidget {
-  final String text;
   bool isActive;
-  HeadingItem({Key? key, this.text = 'Heading', this.isActive = false})
-      : super(key: key);
+  HeadingItem({Key? key, this.isActive = false}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     final chanageState = Provider.of<ItemProvider>(context);
@@ -26,11 +24,11 @@ class HeadingItem extends StatelessWidget {
                     ? Border.all(width: 1, color: primaryAccentColor)
                     : Border.all(width: 1, color: Colors.red.withOpacity(0))),
             child: Text(
-              text,
+              chanageState.content,
               textAlign: chanageState.textAlign,
-              style: const TextStyle(
+              style: TextStyle(
                 color: Colors.black,
-                fontWeight: FontWeight.bold,
+                fontWeight: chanageState.textWeigth,
                 fontSize: 24,
               ),
             ),

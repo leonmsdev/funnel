@@ -4,8 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:funnel/providers/color_theme_provider.dart';
 import 'package:provider/provider.dart';
 
+// ignore: must_be_immutable
 class ThemeDropdownButton extends StatelessWidget {
-  const ThemeDropdownButton({Key? key}) : super(key: key);
+  ThemeDropdownButton({Key? key, this.update}) : super(key: key);
+
+  Function? update;
 
   @override
   Widget build(BuildContext context) {
@@ -29,6 +32,7 @@ class ThemeDropdownButton extends StatelessWidget {
             ],
             onChanged: (String? value) {
               provider.changeTheme(value ?? 'system');
+              update;
             });
       },
     );

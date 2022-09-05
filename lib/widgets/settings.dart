@@ -5,15 +5,28 @@ import 'package:heroicons/heroicons.dart';
 
 import 'custom_text.dart';
 
-class Settings extends StatelessWidget {
+class Settings extends StatefulWidget {
   const Settings({Key? key}) : super(key: key);
+
+  @override
+  State<Settings> createState() => _SettingsState();
+}
+
+class _SettingsState extends State<Settings> {
+  update() {
+    // ignore: avoid_print
+    print("triggered");
+    setState(() {});
+  }
 
   @override
   Widget build(BuildContext context) {
     return Stack(
       children: [
         Container(
+          padding: const EdgeInsets.all(20),
           width: 400,
+          height: 240,
           decoration: BoxDecoration(
             color: Theme.of(context).brightness == Brightness.light
                 ? Colors.white
@@ -50,7 +63,9 @@ class Settings extends StatelessWidget {
                   height: 20,
                 ),
                 CustomText(text: "Change color theme:"),
-                const ThemeDropdownButton(),
+                ThemeDropdownButton(
+                  update: update(),
+                ),
                 const SizedBox(
                   height: 20,
                 ),
