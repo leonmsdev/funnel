@@ -34,7 +34,7 @@ class MediumScreen extends StatelessWidget {
                   ],
                 ),
                 const SizedBox(height: 50),
-                const ThemeDropdownButton(),
+                ThemeDropdownButton(),
                 const SizedBox(height: 40),
                 IconButton(
                     onPressed: () async {

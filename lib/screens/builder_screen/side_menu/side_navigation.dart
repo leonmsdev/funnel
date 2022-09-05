@@ -59,17 +59,19 @@ class SideNavigation extends StatelessWidget {
                     builder: (_) {
                       // ignore: todo
                       //TODO AlertDialog mit Settings zu einem Widget umbauen.
-                      return AlertDialog(
-                        contentPadding: const EdgeInsets.all(0),
-                        insetPadding: const EdgeInsets.symmetric(horizontal: 0),
-                        backgroundColor:
-                            Theme.of(context).brightness == Brightness.light
-                                ? Colors.white
-                                : darkMenuBackground,
-                        shape: const RoundedRectangleBorder(
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(20.0))),
-                        title: const Settings(),
+                      return SizedBox(
+                        child: Dialog(
+                          insetPadding:
+                              const EdgeInsets.symmetric(horizontal: 0),
+                          backgroundColor:
+                              Theme.of(context).brightness == Brightness.light
+                                  ? Colors.white
+                                  : darkMenuBackground,
+                          shape: const RoundedRectangleBorder(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(20.0))),
+                          child: const Settings(),
+                        ),
                       );
                     }).then((exit) {
                   if (exit == null) return;
